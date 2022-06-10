@@ -1,13 +1,14 @@
 import time
 import random
 name = input('What is your name?\n')
-print ()
+print () #Leeg
 print('Hi, %s.' % name)
 print("Welkom to hangman")
 print("Guess the country chosen to win")
-print()
+print() #Leeg
 
-woorden = ["netherlands", "france", "belgium", "spain", "denmark", "finland", "luxembourg", "ukraine", "portugal","hungary","china","india","nepal","russia"]
+woorden = ["netherlands", "france", "belgium", "spain", "denmark", "finland", "luxembourg", "ukraine",
+"portugal","hungary","china","india","nepal","russia","brazil","norway","poland"]
 
 galg = [
 "_________       ",
@@ -35,20 +36,20 @@ guesses = ''
 turns = 10
 
 #maakt een loop
-#Kijkt hoeveel keer nog
+#Checkt hoeveel kansen je nog hebt
 while turns > 0:         
 
     #begin bij 0
     letters_not_guesed = 0             
     toonwoord=''
 
-    #voor ieder karacter in het woord
+    #voor ieder letter in het woord
     for char in woord:      
 
-    #kijk of het karakter in het woord zit
+    #kijk of de letter in het woord zit
         if char in guesses:    
     
-        #laat het karakter zien
+        #laat het letter zien
             toonwoord=toonwoord + (char)    
 
         else:
@@ -60,12 +61,12 @@ while turns > 0:
             letters_not_guesed += 1    
 
     print ('Word:',toonwoord, '. Already picked letters:', guesses)
-    print () # emtpy line
+    print () #Leeg
 
-    #als fail is gelijk aan 0
-    #Je hebt gewonnen
+    
+    #Toont "je hebt gewonnen scherm"
     if letters_not_guesed == 0:
-        print ()
+        print () #Leeg
         print ('...')
         #wait for 1 second
         time.sleep(1)        
@@ -81,13 +82,13 @@ while turns > 0:
     time.sleep(1)   
     guess = input ('Guess a letter: ') 
 
-    #zet het aantal keer gokken 
+    #laat het aantal keer gegokt zien 
     guesses += guess                    
 
-    #als het niet is gevonden in het woord
+    #als letter niet in het woord zit
     if guess not in woord:  
  
-     #Er gaat er steeds 1 af
+     #1 leven er af
         turns -= 1        
 
         # teken galg
@@ -101,7 +102,7 @@ while turns > 0:
 
     # print fout
         print ('Incorrect ...')
-        print ()
+        print () #Leeg
  
     #hoeveel keer nog
         print (name, 'You have', + turns, 'turns') 
@@ -115,3 +116,4 @@ while turns > 0:
             #wait for 1 second
             time.sleep(1)   
             print ('Too bad', name, 'you lost, the country was:', woord)
+
